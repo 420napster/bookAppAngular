@@ -4,6 +4,7 @@
         <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
             placeholder="&#xf002;  Search for a book by Id or Title or Author">
     </div>
+    <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
     <table class="table table-bordered table-hover">
         <tr style="background: #16947b">
             <th>ID</th>

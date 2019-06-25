@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {BookService} from '../book.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../book';
+import { ToastrService } from 'ngx-toastr';
+import { browser } from 'protractor';
 
 @Component({
   selector: 'app-add-book',
@@ -18,15 +20,17 @@ export class AddBookComponent implements OnInit {
   //book: Book;
   
 
-  constructor(private router: Router, private route: ActivatedRoute, private _bookService: BookService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private toastr: ToastrService, private _bookService: BookService) { }
 
   addBook(book) {
     if (this.btnName == 'Add New') {
       this._bookService.addNewBook(book);
-      this.router.navigate(['/book/list']);      
+      this.router.navigate(['/book/list']);  
+      this.toastr.success('Added Successfully');    
     } else {
       this._bookService.updateBook(this.id, book);
       this.router.navigate(['/book/list']);
+      this.toastr.success('Updated Successfully');
     } 
   }
 
