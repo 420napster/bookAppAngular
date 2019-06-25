@@ -1,25 +1,29 @@
 <br>
-<div class = "container">
-  <table class = "table table-bordered table-hover">
-      <tr style = "background: #16947b">
-          <th>ID</th>
-          <th>TITLE</th>
-          <th>AUTHOR</th>
-          <th>Delete</th>
-      </tr>
-      <tr *ngFor = "let book of books" >
-          <td>{{book.id}}</td>
-          <td>{{book.title}}</td>
-          <td>{{book.author}}</td>
-          <td>
-            <div class="btn-group">
-                <button (click)="editBook(book.id)" class=" btn btn-primary">Edit</button>
-                <button (click)="deleteBook(book.id)" class=" btn btn-danger">Delete</button>
-            </div>
-          </td>
-      </tr>
-      <tr *ngIf = "books && books.length == 0">
-          <td colspan = "4">No records found!</td>
-      </tr>
-  </table>
+<div class="container">
+    <div class="search-book">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder="&#xf002;  Search for a book by Id or Title or Author">
+    </div>
+    <table class="table table-bordered table-hover">
+        <tr style="background: #16947b">
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>AUTHOR</th>
+            <th>Delete</th>
+        </tr>
+        <tr *ngFor="let book of books | filter:searchText">
+            <td>{{book.id}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>
+                <div class="btn-group">
+                    <button (click)="editBook(book.id)" class=" btn btn-primary">Edit</button>
+                    <button (click)="deleteBook(book.id)" class=" btn btn-danger">Delete</button>
+                </div>
+            </td>
+        </tr>
+        <tr *ngIf="books && books.length == 0">
+            <td colspan="4">No records found!</td>
+        </tr>
+    </table>
 </div>

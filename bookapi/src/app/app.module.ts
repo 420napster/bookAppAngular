@@ -12,6 +12,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { FormsModule } from '@angular/forms';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent, BookListComponent, AddBookComponent, HeaderComponent, FooterComponent
@@ -20,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
   providers: [BookService],
   bootstrap: [AppComponent]
