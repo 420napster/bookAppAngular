@@ -11,7 +11,7 @@
             <th>AUTHOR</th>
             <th>Delete</th>
         </tr>
-        <tr *ngFor="let book of books | filter:searchText">
+        <tr *ngFor="let book of books | filter:searchText  | paginate: { itemsPerPage: 5, currentPage: p }">
             <td>{{book.id}}</td>
             <td>{{book.title}}</td>
             <td>{{book.author}}</td>
@@ -26,4 +26,5 @@
             <td colspan="4">No records found!</td>
         </tr>
     </table>
+    <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
 </div>

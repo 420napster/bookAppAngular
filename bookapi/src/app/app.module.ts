@@ -13,6 +13,7 @@ import { AddBookComponent } from './book/add-book/add-book.component';
 import { FormsModule } from '@angular/forms';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   providers: [BookService],
   bootstrap: [AppComponent]

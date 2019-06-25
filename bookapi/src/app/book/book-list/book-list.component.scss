@@ -13,3 +13,15 @@ th{
 .form-control::placeholder  {
     font-family: fontAwesome;
 }
+
+.my-pagination{
+    float: right;
+}
+
+.my-pagination /deep/ .ngx-pagination :hover{
+    background: #16a085;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #16a085;
+  }
